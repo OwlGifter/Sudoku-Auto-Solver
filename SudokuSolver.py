@@ -183,16 +183,21 @@ def solve_backtrack(s):
 
         
 def askForUnSolvedSudoku():
-    int = input("Please put in a unsolved sudoku using 0's as an empty slot,make sure there are no spaces: \n")
-    
-    
-    return int       
+    notCorrect = True
+    while(notCorrect):
+        temp = input("Please put in a unsolved sudoku using 0's as an empty slot,make sure there are no spaces: \n")
+        if(len(temp) == 81):
+            notCorrect = False
+        else:
+            print("size for sudoku was incorrect")
+    return temp      
         
 B = askForUnSolvedSudoku()
-s = solve_backtrack(B) 
+Us = Sudoku(B)
+Us.draw()
+s = solve_backtrack(B)
 S = Sudoku(s)
 S.draw()
-        
         
         
         
